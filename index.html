@@ -1,0 +1,1389 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Essence Crespo Perfumes · Catálogo</title>
+<meta name="description" content="Catálogo de perfumes Extrait de Parfum Essence 60 ml. Árabes, nicho y diseñador.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  // Paleta y tipografías tomadas del logo (negro, dorado, crema)
+  tailwind.config = { theme: { extend: {
+    colors: { ink: '#0a0a0a', panel: '#141312', line: '#2a2620', gold: '#d4a94e', goldlight: '#f3d98a', golddark: '#a9803a', cream: '#f5efe0' },
+    fontFamily: { serif: ['"Cormorant Garamond"', 'Georgia', 'serif'], sans: ['Jost', 'system-ui', 'sans-serif'] }
+  } } };
+</script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { background: #0a0a0a; color: #f5efe0; }
+  .gold-text { background: linear-gradient(100deg, #b8893a 0%, #f3d98a 50%, #c9983f 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  .card { transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+  .card:hover { transform: translateY(-4px); border-color: #a9803a; box-shadow: 0 12px 30px -12px rgba(212,169,78,.25); }
+  .card img { transition: transform .5s ease; }
+  .card:hover img { transform: scale(1.04); }
+  .fade-in { animation: fade .35s ease both; }
+  @keyframes fade { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+  :focus-visible { outline: 2px solid #f3d98a; outline-offset: 2px; }
+</style>
+</head>
+<body class="font-sans antialiased">
+
+<!-- ============ BARRA SUPERIOR ============ -->
+<header class="sticky top-0 z-40 bg-ink/90 backdrop-blur border-b border-line">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+    <a href="#inicio" class="flex items-baseline gap-2" aria-label="Essence Crespo Perfumes, ir al inicio">
+      <span class="font-serif italic text-3xl gold-text leading-none">Essence</span>
+      <span class="hidden sm:inline text-[10px] tracking-[0.35em] text-cream/80">CRESPO</span>
+    </a>
+    <nav class="flex items-center gap-5 text-sm" aria-label="Principal">
+      <a href="#inicio" class="hidden sm:inline text-cream/70 hover:text-goldlight transition">Inicio</a>
+      <a href="#catalogo" class="text-cream/70 hover:text-goldlight transition">Catálogo</a>
+      <a href="#contacto" class="text-cream/70 hover:text-goldlight transition">Contacto</a>
+      <a id="navWhatsapp" href="#" target="_blank" rel="noopener" class="rounded-full border border-gold/60 text-goldlight px-4 py-1.5 hover:bg-gold hover:text-ink transition">WhatsApp</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- ============ ENCABEZADO PRINCIPAL ============ -->
+<section id="inicio" class="relative overflow-hidden border-b border-line">
+  <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(212,169,78,.12),transparent_60%)]" aria-hidden="true"></div>
+  <div class="relative max-w-4xl mx-auto px-6 py-20 sm:py-28 text-center">
+    <h1 class="font-serif italic text-6xl sm:text-8xl gold-text leading-tight">Essence</h1>
+    <div class="mt-4 flex items-center justify-center gap-4" aria-hidden="true">
+      <span class="h-px w-12 sm:w-24 bg-cream/60"></span>
+      <span class="tracking-[0.5em] text-cream text-lg sm:text-xl">CRESPO</span>
+      <span class="h-px w-12 sm:w-24 bg-cream/60"></span>
+    </div>
+    <p class="mt-3 tracking-[0.4em] text-xs text-golddark">PERFUMES</p>
+    <p class="mt-10 text-cream/75 text-base sm:text-lg max-w-2xl mx-auto font-light">
+      Extrait de Parfum Essence en 60 ml. Explorá fragancias árabes, de nicho y de diseñador, y consultá por la que más te represente.
+    </p>
+    <a href="#catalogo" class="inline-block mt-8 rounded-full bg-gold text-ink font-medium px-8 py-3 hover:bg-goldlight transition">Explorar catálogo</a>
+  </div>
+</section>
+
+<!-- ============ CATÁLOGO ============ -->
+<section id="catalogo" class="max-w-7xl mx-auto px-4 sm:px-6 py-14">
+  <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-2">
+    <div>
+      <h2 class="font-serif text-4xl sm:text-5xl">Nuestro <span class="italic gold-text">catálogo</span></h2>
+      <p id="resultCount" class="mt-2 text-sm text-cream/60" role="status" aria-live="polite"></p>
+    </div>
+  </div>
+
+  <!-- Controles de búsqueda y filtros -->
+  <div class="mt-8 grid gap-4 lg:grid-cols-[1fr_auto_auto] lg:items-center">
+    <div class="relative">
+      <label for="searchInput" class="sr-only">Buscar perfumes</label>
+      <svg class="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gold" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+      <input id="searchInput" type="search" autocomplete="off" placeholder="Buscá por nombre, nota, familia olfativa…"
+        class="w-full bg-panel border border-line rounded-full pl-11 pr-4 py-3 text-sm placeholder:text-cream/40 focus:border-gold focus:outline-none">
+    </div>
+    <div class="flex items-center gap-2">
+      <label for="genderSelect" class="text-xs text-cream/60">Género</label>
+      <select id="genderSelect" class="bg-panel border border-line rounded-full px-4 py-3 text-sm focus:border-gold focus:outline-none"></select>
+    </div>
+    <button id="clearFilters" type="button" class="rounded-full border border-line px-5 py-3 text-sm text-cream/80 hover:border-gold hover:text-goldlight transition">Limpiar filtros</button>
+  </div>
+
+  <div id="categoryFilters" class="mt-5 flex flex-wrap gap-2" role="group" aria-label="Filtrar por categoría"></div>
+
+  <!-- Grilla de productos -->
+  <div id="productGrid" class="mt-8 grid gap-5 grid-cols-2 md:grid-cols-3 lg:grid-cols-4"></div>
+
+  <!-- Estado vacío -->
+  <div id="emptyState" class="hidden mt-16 text-center py-12 border border-dashed border-line rounded-2xl">
+    <p class="font-serif text-2xl">No encontramos perfumes con esos filtros</p>
+    <p class="mt-2 text-sm text-cream/60">Probá con otra palabra o restablecé los filtros.</p>
+    <button id="emptyReset" type="button" class="mt-5 rounded-full bg-gold text-ink px-6 py-2.5 text-sm font-medium hover:bg-goldlight transition">Ver todos los perfumes</button>
+  </div>
+</section>
+</main>
+
+<!-- ============ PIE DE PÁGINA ============ -->
+<footer id="contacto" class="border-t border-line bg-panel">
+  <div class="max-w-7xl mx-auto px-6 py-12 grid gap-8 sm:grid-cols-3">
+    <div>
+      <p class="font-serif italic text-3xl gold-text">Essence</p>
+      <p class="text-[10px] tracking-[0.4em] text-cream/70 mt-1">CRESPO · PERFUMES</p>
+    </div>
+    <div class="text-sm text-cream/70 space-y-2">
+      <p class="text-cream font-medium">Contacto</p>
+      <p id="footerCity"></p>
+      <p><a id="footerWhatsapp" href="#" target="_blank" rel="noopener" class="hover:text-goldlight underline-offset-4 hover:underline"></a></p>
+      <p><a id="footerInstagram" href="#" target="_blank" rel="noopener" class="hover:text-goldlight underline-offset-4 hover:underline"></a></p>
+    </div>
+    <div class="text-sm text-cream/70 space-y-2">
+      <p class="text-cream font-medium">Horarios</p>
+      <p id="footerHours"></p>
+    </div>
+  </div>
+  <p class="text-center text-xs text-cream/40 pb-6">© <span id="year"></span> Essence Crespo Perfumes. Los precios y la disponibilidad pueden cambiar.</p>
+</footer>
+
+<!-- ============ MODAL DE DETALLES ============ -->
+<div id="productModal" class="hidden fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/80 p-0 sm:p-6" role="presentation">
+  <div role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1"
+       class="relative w-full sm:max-w-4xl max-h-[92vh] overflow-y-auto bg-panel border border-line rounded-t-2xl sm:rounded-2xl shadow-2xl fade-in">
+    <button id="modalClose" type="button" aria-label="Cerrar detalles" class="absolute top-3 right-3 z-10 w-10 h-10 rounded-full bg-ink/80 border border-line text-cream hover:border-gold hover:text-goldlight transition flex items-center justify-center">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="grid sm:grid-cols-2">
+      <div class="bg-black sm:rounded-l-2xl overflow-hidden"><img id="modalImage" alt="" class="w-full h-full max-h-[50vh] sm:max-h-none aspect-[4/5] object-cover"></div>
+      <div class="p-6 sm:p-8">
+        <p id="modalCategory" class="text-xs tracking-[0.25em] uppercase text-golddark"></p>
+        <h3 id="modalTitle" class="font-serif text-3xl sm:text-4xl mt-1 leading-tight"></h3>
+        <div class="mt-3 flex flex-wrap items-center gap-3">
+          <span id="modalPrice" class="text-2xl text-goldlight font-medium"></span>
+          <span id="modalStock"></span>
+        </div>
+        <p id="modalDescription" class="mt-4 text-sm text-cream/75 leading-relaxed"></p>
+        <div id="modalNotes" class="mt-5 space-y-2 text-sm"></div>
+        <dl id="modalMeta" class="mt-5 grid grid-cols-2 gap-x-4 gap-y-3 text-sm"></dl>
+        <a id="modalWhatsapp" href="#" target="_blank" rel="noopener" class="mt-6 flex items-center justify-center rounded-full bg-gold text-ink font-medium py-3 hover:bg-goldlight transition"></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* =====================================================================
+   1. CONFIGURACIÓN DEL NEGOCIO  — editá estos valores
+   ===================================================================== */
+const CONFIG = {
+  // Número de WhatsApp del negocio, con código de país y sin "+", espacios ni guiones.
+  // Argentina (celular): 549 + código de área sin 0 + número.
+  whatsappNumber: '5493434638450',
+  whatsappDisplay: '+54 9 3434 63-8450', // texto visible en el pie de página
+  instagram: '@essencecrespo',            // ⚠️ de ejemplo
+  ciudad: 'Crespo, Entre Ríos',           // ⚠️ confirmá o cambiá
+  horarios: 'Lunes a sábados de 9 a 20 h', // ⚠️ de ejemplo
+  moneda: { locale: 'es-AR', currency: 'ARS' }
+};
+
+/* =====================================================================
+   2. DATOS DE PRODUCTOS (generados desde tu Excel)
+   Para agregar, quitar o editar un perfume, modificá este array.
+   ⚠️ Los precios (precio: 45000) son DE EJEMPLO: reemplazalos por los reales.
+   Si ponés precio: null se muestra "Consultar precio". stock: false = sin stock.
+   ===================================================================== */
+const PRODUCTS = [
+  {
+    "id": 1,
+    "nombre": "Afnan 9PM",
+    "categoria": "Árabes",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Manzana · Canela · Vainilla · Haba tonka",
+    "descripcionDetallada": "Manzana y canela sobre vainilla y haba tonka. Dulce, cálido y pensado para la noche. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/afnan-9pm.webp",
+    "notas": {
+      "salida": [
+        "Manzana",
+        "Canela",
+        "Lavanda silvestre",
+        "Bergamota"
+      ],
+      "corazon": [
+        "Azahar",
+        "Muguet"
+      ],
+      "fondo": [
+        "Vainilla",
+        "Haba tonka",
+        "Ámbar",
+        "Pachulí"
+      ]
+    },
+    "familias": [
+      "Dulce y gourmand",
+      "Ambarado e intenso",
+      "Especiado"
+    ],
+    "acordes": [
+      "Vainilla",
+      "Ámbar",
+      "Especiado cálido",
+      "Frutal",
+      "Canela",
+      "Dulce",
+      "Lavanda"
+    ],
+    "ocasion": "Noche y salidas",
+    "clima": "Frío",
+    "caracter": "Marcada"
+  },
+  {
+    "id": 2,
+    "nombre": "Afnan 9PM Night Out",
+    "categoria": "Árabes",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Pitahaya · Toffee · Haba tonka · Akigalawood",
+    "descripcionDetallada": "La apertura combina pitahaya, coñac y lavanda. Después llega el turno de toffee, gamuza y cardamomo, y el final queda en haba tonka, akigalawood y ambrofix. El conjunto es amaderado, dulce y especiado. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/afnan-9pm-night-out.webp",
+    "notas": {
+      "salida": [
+        "Pitahaya",
+        "Coñac",
+        "Lavanda",
+        "Manzana",
+        "Bergamota"
+      ],
+      "corazon": [
+        "Toffee",
+        "Gamuza",
+        "Cardamomo",
+        "Cedro",
+        "Mahonial"
+      ],
+      "fondo": [
+        "Haba tonka",
+        "Akigalawood",
+        "Ambrofix",
+        "Pachulí"
+      ]
+    },
+    "familias": [
+      "Amaderado",
+      "Dulce y gourmand",
+      "Especiado"
+    ],
+    "acordes": [
+      "Amaderado",
+      "Frutal",
+      "Especiado cálido",
+      "Dulce",
+      "Tropical",
+      "Aromático",
+      "Lavanda",
+      "Floral",
+      "Vainilla",
+      "Especiado fresco"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Envolvente"
+  },
+  {
+    "id": 3,
+    "nombre": "Al Haramain Amber Oud Dubai Night",
+    "categoria": "Árabes",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Azafrán · Oud · Haba tonka · Ámbar",
+    "descripcionDetallada": "Primero azafrán, bergamota y elemí. Después oud, rosa búlgara y muguet. Al final, haba tonka, ámbar y almizcle blanco. El resultado es un perfil ambarado y especiado. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/al-haramain-amber-oud-dubai-night.webp",
+    "notas": {
+      "salida": [
+        "Azafrán",
+        "Bergamota",
+        "Elemí"
+      ],
+      "corazon": [
+        "Oud",
+        "Rosa búlgara",
+        "Muguet"
+      ],
+      "fondo": [
+        "Haba tonka",
+        "Ámbar",
+        "Almizcle blanco",
+        "Musgo de roble"
+      ]
+    },
+    "familias": [
+      "Ambarado e intenso",
+      "Especiado",
+      "Floral"
+    ],
+    "acordes": [
+      "Ámbar",
+      "Especiado cálido",
+      "Rosa",
+      "Oud",
+      "Aromático",
+      "Cítrico",
+      "Vainilla",
+      "Almizclado",
+      "Especiado fresco",
+      "Empolvado"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Intensa"
+  },
+  {
+    "id": 4,
+    "nombre": "Al Haramain Amber Oud Gold",
+    "categoria": "Árabes",
+    "genero": "Femenino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Bergamota · Melón · Vainilla · Almizcle",
+    "descripcionDetallada": "Desde bergamota y notas verdes avanza hacia melón, ananá y ámbar y cierra apoyado en vainilla, almizcle y notas amaderadas. El conjunto es dulce, acuático y cítrico. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/al-haramain-amber-oud-gold.webp",
+    "notas": {
+      "salida": [
+        "Bergamota",
+        "Notas verdes"
+      ],
+      "corazon": [
+        "Melón",
+        "Ananá",
+        "Ámbar",
+        "Acorde gourmand"
+      ],
+      "fondo": [
+        "Vainilla",
+        "Almizcle",
+        "Notas amaderadas"
+      ]
+    },
+    "familias": [
+      "Dulce y gourmand",
+      "Acuático",
+      "Cítrico y fresco"
+    ],
+    "acordes": [
+      "Dulce",
+      "Frutal",
+      "Ozónico",
+      "Vainilla",
+      "Empolvado",
+      "Almizclado",
+      "Fresco",
+      "Acuático",
+      "Ámbar",
+      "Cítrico"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Equilibrada"
+  },
+  {
+    "id": 5,
+    "nombre": "Amouage Guidance 46",
+    "categoria": "Nicho",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Agua de rosas · Rosa · Sándalo · Akigalawood",
+    "descripcionDetallada": "Agua de rosas, pera y avellana en la salida, rosa, osmanto y azafrán en el corazón y sándalo, akigalawood y vainilla en el fondo. El perfil cruza lo amaderado con lo dulce. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/amouage-guidance-46.webp",
+    "notas": {
+      "salida": [
+        "Agua de rosas",
+        "Pera",
+        "Avellana",
+        "Almendra amarga",
+        "Olíbano",
+        "Pimienta rosa"
+      ],
+      "corazon": [
+        "Rosa",
+        "Osmanto",
+        "Azafrán",
+        "Jazmín sambac"
+      ],
+      "fondo": [
+        "Sándalo",
+        "Akigalawood",
+        "Vainilla",
+        "Ambreta",
+        "Ámbar gris",
+        "Labdanum",
+        "Georgywood",
+        "Cypriol"
+      ]
+    },
+    "familias": [
+      "Amaderado",
+      "Dulce y gourmand",
+      "Especiado"
+    ],
+    "acordes": [
+      "Amaderado",
+      "Frutal",
+      "Avellanado",
+      "Especiado cálido",
+      "Floral",
+      "Ámbar",
+      "Dulce",
+      "Rosa",
+      "Almendra",
+      "Empolvado"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Envolvente"
+  },
+  {
+    "id": 6,
+    "nombre": "Antonio Banderas Blue Seduction",
+    "categoria": "Diseñador",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Melón · Agua de mar · Notas amaderadas · Ámbar",
+    "descripcionDetallada": "Primero melón, bergamota y menta. Después agua de mar, manzana verde y capuchino. Al final, notas amaderadas y ámbar. El resultado es un perfil aromático y acuático. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/antonio-banderas-blue-seduction.webp",
+    "notas": {
+      "salida": [
+        "Melón",
+        "Bergamota",
+        "Menta",
+        "Grosella negra"
+      ],
+      "corazon": [
+        "Agua de mar",
+        "Manzana verde",
+        "Capuchino",
+        "Cardamomo",
+        "Nuez moscada"
+      ],
+      "fondo": [
+        "Notas amaderadas",
+        "Ámbar"
+      ]
+    },
+    "familias": [
+      "Aromático y limpio",
+      "Dulce y gourmand",
+      "Acuático"
+    ],
+    "acordes": [
+      "Aromático",
+      "Frutal",
+      "Marino",
+      "Acuático",
+      "Especiado fresco",
+      "Verde",
+      "Ozónico",
+      "Fresco",
+      "Cítrico",
+      "Salado"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Suave"
+  },
+  {
+    "id": 7,
+    "nombre": "Antonio Banderas Icon",
+    "categoria": "Diseñador",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Pomelo · Lavanda · Sándalo · Musgo de roble",
+    "descripcionDetallada": "Desde pomelo y pimienta negra avanza hacia lavanda y salvia y cierra apoyado en sándalo y musgo de roble. El resultado es un perfil especiado, aromático y cítrico. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/antonio-banderas-icon.webp",
+    "notas": {
+      "salida": [
+        "Pomelo",
+        "Pimienta negra"
+      ],
+      "corazon": [
+        "Lavanda",
+        "Salvia"
+      ],
+      "fondo": [
+        "Sándalo",
+        "Musgo de roble"
+      ]
+    },
+    "familias": [
+      "Especiado",
+      "Aromático y limpio",
+      "Cítrico y fresco"
+    ],
+    "acordes": [
+      "Especiado fresco",
+      "Aromático",
+      "Cítrico",
+      "Lavanda",
+      "Amaderado",
+      "Especiado cálido",
+      "Herbal",
+      "Musgoso",
+      "Terroso"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Equilibrada"
+  },
+  {
+    "id": 8,
+    "nombre": "Antonio Banderas King of Seduction",
+    "categoria": "Diseñador",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Ananá · Notas marinas · Vetiver · Almizcle blanco",
+    "descripcionDetallada": "Arranca con ananá, melón y bergamota, pasa por notas marinas, jazmín y cardamomo y termina sobre vetiver, almizcle blanco y cedro. Entre sus acordes principales figuran aromático y cítrico. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/antonio-banderas-king-of-seduction.webp",
+    "notas": {
+      "salida": [
+        "Ananá",
+        "Melón",
+        "Bergamota",
+        "Manzana verde",
+        "Pomelo"
+      ],
+      "corazon": [
+        "Notas marinas",
+        "Jazmín",
+        "Cardamomo",
+        "Neroli"
+      ],
+      "fondo": [
+        "Vetiver",
+        "Almizcle blanco",
+        "Cedro",
+        "Gamuza",
+        "Ámbar"
+      ]
+    },
+    "familias": [
+      "Aromático y limpio",
+      "Cítrico y fresco",
+      "Dulce y gourmand"
+    ],
+    "acordes": [
+      "Aromático",
+      "Cítrico",
+      "Frutal",
+      "Marino",
+      "Amaderado",
+      "Fresco",
+      "Acuático",
+      "Almizclado",
+      "Dulce",
+      "Especiado fresco"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Suave"
+  },
+  {
+    "id": 9,
+    "nombre": "Antonio Banderas Power of Seduction",
+    "categoria": "Diseñador",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Manzana · Lavanda · Notas amaderadas · Musgo",
+    "descripcionDetallada": "La salida es de manzana y bergamota; el centro se arma con lavanda, artemisa y salvia sclarea; el fondo descansa en notas amaderadas, musgo y haba tonka. La composición combina un registro aromático y amaderado. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/antonio-banderas-power-of-seduction.webp",
+    "notas": {
+      "salida": [
+        "Manzana",
+        "Bergamota"
+      ],
+      "corazon": [
+        "Lavanda",
+        "Artemisa",
+        "Salvia sclarea"
+      ],
+      "fondo": [
+        "Notas amaderadas",
+        "Musgo",
+        "Haba tonka",
+        "Ámbar",
+        "Pachulí"
+      ]
+    },
+    "familias": [
+      "Aromático y limpio",
+      "Amaderado",
+      "Especiado"
+    ],
+    "acordes": [
+      "Aromático",
+      "Amaderado",
+      "Especiado fresco",
+      "Lavanda",
+      "Cítrico",
+      "Frutal",
+      "Musgoso",
+      "Herbal",
+      "Terroso",
+      "Ámbar"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Equilibrada"
+  },
+  {
+    "id": 10,
+    "nombre": "Ariana Grande Cloud",
+    "categoria": "Diseñador",
+    "genero": "Femenino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Lavanda · Crema batida · Almizcle · Notas amaderadas",
+    "descripcionDetallada": "Abre con lavanda, pera y bergamota. El corazón suma crema batida, coco y praliné y el fondo se asienta en almizcle y notas amaderadas. Queda en un registro dulce. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/ariana-grande-cloud.webp",
+    "notas": {
+      "salida": [
+        "Lavanda",
+        "Pera",
+        "Bergamota"
+      ],
+      "corazon": [
+        "Crema batida",
+        "Coco",
+        "Praliné",
+        "Orquídea de vainilla"
+      ],
+      "fondo": [
+        "Almizcle",
+        "Notas amaderadas"
+      ]
+    },
+    "familias": [
+      "Dulce y gourmand"
+    ],
+    "acordes": [
+      "Dulce",
+      "Lactónico",
+      "Vainilla",
+      "Coco",
+      "Almizclado"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Envolvente"
+  },
+  {
+    "id": 11,
+    "nombre": "Ariana Grande Sweet Like Candy",
+    "categoria": "Diseñador",
+    "genero": "Femenino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Mora · Crema batida · Vainilla · Madera de cachemira",
+    "descripcionDetallada": "Primero mora, pera y bergamota. Después crema batida, malvavisco y grosella negra. Al final, vainilla y madera de cachemira. El conjunto es dulce. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/ariana-grande-sweet-like-candy.webp",
+    "notas": {
+      "salida": [
+        "Mora",
+        "Pera",
+        "Bergamota"
+      ],
+      "corazon": [
+        "Crema batida",
+        "Malvavisco",
+        "Grosella negra",
+        "Jazmín",
+        "Madreselva",
+        "Frangipani"
+      ],
+      "fondo": [
+        "Vainilla",
+        "Madera de cachemira"
+      ]
+    },
+    "familias": [
+      "Dulce y gourmand"
+    ],
+    "acordes": [
+      "Dulce",
+      "Frutal",
+      "Vainilla",
+      "Empolvado",
+      "Lactónico"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Equilibrada"
+  },
+  {
+    "id": 12,
+    "nombre": "Armaf Club de Nuit",
+    "categoria": "Árabes",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Ananá · Abedul · Almizcle · Ámbar gris",
+    "descripcionDetallada": "Apertura frutal de ananá y limón que cae sobre un abedul ahumado. Es el árabe más pedido en este estilo. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/armaf-club-de-nuit.webp",
+    "notas": {
+      "salida": [
+        "Limón",
+        "Ananá",
+        "Bergamota",
+        "Grosella negra",
+        "Manzana"
+      ],
+      "corazon": [
+        "Abedul",
+        "Jazmín",
+        "Rosa"
+      ],
+      "fondo": [
+        "Almizcle",
+        "Ámbar gris",
+        "Pachulí",
+        "Vainilla"
+      ]
+    },
+    "familias": [
+      "Cítrico y fresco",
+      "Cuero y ahumado",
+      "Amaderado"
+    ],
+    "acordes": [
+      "Cítrico",
+      "Frutal",
+      "Cuero",
+      "Ahumado",
+      "Amaderado",
+      "Aromático",
+      "Dulce"
+    ],
+    "ocasion": "Algo versátil · Un evento",
+    "clima": "Todo el año",
+    "caracter": "Marcada"
+  },
+  {
+    "id": 13,
+    "nombre": "Armaf Mandarin Sky",
+    "categoria": "Árabes",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Mandarina · Caramelo · Ambroxan · Cedro",
+    "descripcionDetallada": "Arranca con mandarina, naranja y azafrán, pasa por caramelo, haba tonka y tagete y termina sobre ambroxan, cedro y vetiver. Es una composición cítrica, dulce y ambarada. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/armaf-mandarin-sky.webp",
+    "notas": {
+      "salida": [
+        "Mandarina",
+        "Naranja",
+        "Azafrán",
+        "Salvia"
+      ],
+      "corazon": [
+        "Caramelo",
+        "Haba tonka",
+        "Tagete"
+      ],
+      "fondo": [
+        "Ambroxan",
+        "Cedro",
+        "Vetiver"
+      ]
+    },
+    "familias": [
+      "Cítrico y fresco",
+      "Dulce y gourmand",
+      "Ambarado e intenso"
+    ],
+    "acordes": [
+      "Cítrico",
+      "Caramelo",
+      "Dulce",
+      "Ámbar",
+      "Aromático",
+      "Vainilla",
+      "Amaderado"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Envolvente"
+  },
+  {
+    "id": 14,
+    "nombre": "Armani Armani Code",
+    "categoria": "Diseñador",
+    "genero": "Femenino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Naranja de Italia · Jazmín · Miel · Vainilla",
+    "descripcionDetallada": "Primero naranja de Italia, jazmín y naranja amarga. Después jazmín, azahar y jengibre. Al final, miel, vainilla y sándalo. Se apoya en acordes de cítrico y floral blanco. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/armani-armani-code.webp",
+    "notas": {
+      "salida": [
+        "Naranja de Italia",
+        "Jazmín",
+        "Naranja amarga"
+      ],
+      "corazon": [
+        "Jazmín",
+        "Azahar",
+        "Jengibre"
+      ],
+      "fondo": [
+        "Miel",
+        "Vainilla",
+        "Sándalo"
+      ]
+    },
+    "familias": [
+      "Cítrico y fresco",
+      "Floral",
+      "Dulce y gourmand"
+    ],
+    "acordes": [
+      "Cítrico",
+      "Floral blanco",
+      "Dulce",
+      "Vainilla",
+      "Miel",
+      "Especiado fresco",
+      "Fresco",
+      "Empolvado",
+      "Floral"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Equilibrada"
+  },
+  {
+    "id": 15,
+    "nombre": "Armani My Way",
+    "categoria": "Diseñador",
+    "genero": "Femenino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Azahar · Nardo · Jazmín · Vainilla",
+    "descripcionDetallada": "Un floral blanco luminoso: azahar y nardo con un fondo de vainilla y almizcle que lo suaviza. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/armani-my-way.webp",
+    "notas": {
+      "salida": [
+        "Azahar",
+        "Bergamota"
+      ],
+      "corazon": [
+        "Nardo",
+        "Jazmín de India"
+      ],
+      "fondo": [
+        "Vainilla de Madagascar",
+        "Almizcle blanco",
+        "Cedro de Virginia"
+      ]
+    },
+    "familias": [
+      "Floral",
+      "Cítrico y fresco"
+    ],
+    "acordes": [
+      "Floral blanco",
+      "Nardo",
+      "Cítrico",
+      "Vainilla"
+    ],
+    "ocasion": "",
+    "clima": "Calor",
+    "caracter": "Equilibrada"
+  },
+  {
+    "id": 16,
+    "nombre": "Armani My Way Intense",
+    "categoria": "Diseñador",
+    "genero": "Femenino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Azahar · Nardo de India · Vainilla de Madagascar · Sándalo",
+    "descripcionDetallada": "Empieza con azahar y naranja amarga. En el corazón hay nardo de India y nardo, y el fondo reúne vainilla de Madagascar y sándalo. Es una composición floral, cítrica y dulce. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/armani-my-way-intense.webp",
+    "notas": {
+      "salida": [
+        "Azahar",
+        "Naranja amarga"
+      ],
+      "corazon": [
+        "Nardo de India",
+        "Nardo"
+      ],
+      "fondo": [
+        "Vainilla de Madagascar",
+        "Sándalo"
+      ]
+    },
+    "familias": [
+      "Floral",
+      "Cítrico y fresco",
+      "Dulce y gourmand"
+    ],
+    "acordes": [
+      "Floral blanco",
+      "Nardo",
+      "Cítrico",
+      "Vainilla",
+      "Animálico",
+      "Amaderado",
+      "Empolvado",
+      "Dulce"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Envolvente"
+  },
+  {
+    "id": 17,
+    "nombre": "Armani Si",
+    "categoria": "Diseñador",
+    "genero": "Femenino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Néctar de grosella negra · Rosa de Mayo · Almizcle blanco · Fresia",
+    "descripcionDetallada": "Néctar de grosella negra, rosa de Mayo, almizcle blanco y fresia. Un floral frutal de pocas notas, con la grosella puesta adelante. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/armani-si.webp",
+    "notas": {
+      "salida": [],
+      "corazon": [],
+      "fondo": []
+    },
+    "familias": [
+      "Floral",
+      "Dulce y gourmand"
+    ],
+    "acordes": [
+      "Floral",
+      "Frutal",
+      "Almizclado"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Equilibrada"
+  },
+  {
+    "id": 18,
+    "nombre": "Azzaro Azzaro",
+    "categoria": "Diseñador",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Lavanda · Vetiver · Musgo de roble · Cuero",
+    "descripcionDetallada": "La apertura combina lavanda, limón y alcaravea. Después llega el turno de vetiver, pachulí y cedro, y el final queda en musgo de roble, cuero y ámbar. Se apoya en acordes de aromático y amaderado. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/azzaro-azzaro.webp",
+    "notas": {
+      "salida": [
+        "Lavanda",
+        "Limón",
+        "Alcaravea",
+        "Albahaca",
+        "Bergamota",
+        "Salvia sclarea",
+        "Iris",
+        "Anís estrellado"
+      ],
+      "corazon": [
+        "Vetiver",
+        "Pachulí",
+        "Cedro",
+        "Sándalo",
+        "Bayas de enebro",
+        "Cardamomo"
+      ],
+      "fondo": [
+        "Musgo de roble",
+        "Cuero",
+        "Ámbar",
+        "Almizcle",
+        "Haba tonka"
+      ]
+    },
+    "familias": [
+      "Aromático y limpio",
+      "Amaderado",
+      "Especiado"
+    ],
+    "acordes": [
+      "Aromático",
+      "Amaderado",
+      "Especiado fresco",
+      "Terroso",
+      "Lavanda",
+      "Musgoso",
+      "Cuero",
+      "Cítrico",
+      "Empolvado",
+      "Especiado cálido"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Intensa"
+  },
+  {
+    "id": 19,
+    "nombre": "Azzaro The Most Wanted",
+    "categoria": "Diseñador",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Cardamomo · Toffee · Amberwood",
+    "descripcionDetallada": "Cardamomo en la salida, toffee en el corazón y amberwood en el fondo. Se apoya en acordes de especiado cálido y dulce. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/azzaro-the-most-wanted.webp",
+    "notas": {
+      "salida": [
+        "Cardamomo"
+      ],
+      "corazon": [
+        "Toffee"
+      ],
+      "fondo": [
+        "Amberwood"
+      ]
+    },
+    "familias": [
+      "Especiado",
+      "Dulce y gourmand",
+      "Ambarado e intenso"
+    ],
+    "acordes": [
+      "Especiado cálido",
+      "Dulce",
+      "Ámbar",
+      "Amaderado",
+      "Caramelo",
+      "Aromático"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Envolvente"
+  },
+  {
+    "id": 20,
+    "nombre": "Azzaro Wanted",
+    "categoria": "Diseñador",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Limón · Manzana · Haba tonka · Amberwood",
+    "descripcionDetallada": "La apertura combina limón, jengibre y lavanda. Después llega el turno de manzana, cardamomo de Guatemala y enebro, y el final queda en haba tonka, amberwood y vetiver de Haití. El perfil cruza lo aromático con lo especiado. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/azzaro-wanted.webp",
+    "notas": {
+      "salida": [
+        "Limón",
+        "Jengibre",
+        "Lavanda",
+        "Menta"
+      ],
+      "corazon": [
+        "Manzana",
+        "Cardamomo de Guatemala",
+        "Enebro",
+        "Geranio"
+      ],
+      "fondo": [
+        "Haba tonka",
+        "Amberwood",
+        "Vetiver de Haití"
+      ]
+    },
+    "familias": [
+      "Aromático y limpio",
+      "Especiado",
+      "Cítrico y fresco"
+    ],
+    "acordes": [
+      "Aromático",
+      "Especiado fresco",
+      "Fresco",
+      "Cítrico",
+      "Ámbar",
+      "Amaderado",
+      "Especiado cálido",
+      "Frutal",
+      "Verde",
+      "Vainilla"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Suave"
+  },
+  {
+    "id": 21,
+    "nombre": "Azzaro Wanted by Night",
+    "categoria": "Diseñador",
+    "genero": "Masculino",
+    "tamano": "60 ml",
+    "precio": 45000,
+    "stock": true,
+    "descripcionBreve": "Canela · Notas frutales · Tabaco · Vainilla",
+    "descripcionDetallada": "Al principio canela, mandarina y lavanda. Más adelante entran notas frutales, incienso y comino, y el fondo termina en tabaco, vainilla y cedro. Es una composición especiada, dulce y amaderada. Extrait de Parfum Essence en 60 ml.",
+    "imagen": "imagenes/azzaro-wanted-by-night.webp",
+    "notas": {
+      "salida": [
+        "Canela",
+        "Mandarina",
+        "Lavanda",
+        "Limón"
+      ],
+      "corazon": [
+        "Notas frutales",
+        "Incienso",
+        "Comino",
+        "Cedro rojo"
+      ],
+      "fondo": [
+        "Tabaco",
+        "Vainilla",
+        "Cedro",
+        "Cuero",
+        "Benjuí",
+        "Iso E Super",
+        "Ciprés",
+        "Pachulí"
+      ]
+    },
+    "familias": [
+      "Especiado",
+      "Dulce y gourmand",
+      "Amaderado"
+    ],
+    "acordes": [
+      "Especiado cálido",
+      "Canela",
+      "Frutal",
+      "Amaderado",
+      "Dulce",
+      "Cítrico",
+      "Ámbar",
+      "Tabaco",
+      "Vainilla"
+    ],
+    "ocasion": "",
+    "clima": "",
+    "caracter": "Marcada"
+  }
+];
+
+/* =====================================================================
+   3. UTILIDADES
+   ===================================================================== */
+const $ = (id) => document.getElementById(id);
+const priceFormatter = new Intl.NumberFormat(CONFIG.moneda.locale, { style: 'currency', currency: CONFIG.moneda.currency, maximumFractionDigits: 0 });
+const formatPrice = (p) => (typeof p === 'number' ? priceFormatter.format(p) : 'Consultar precio');
+const normalize = (t) => String(t || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+const escapeHTML = (t) => String(t ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const PLACEHOLDER_IMG = 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500"><rect width="400" height="500" fill="#141312"/><text x="200" y="260" text-anchor="middle" font-family="Georgia,serif" font-style="italic" font-size="40" fill="#a9803a">Essence</text></svg>');
+const imgFallback = (img) => { img.onerror = null; img.src = PLACEHOLDER_IMG; };
+
+// Enlace de WhatsApp con mensaje prearmado y correctamente codificado
+function buildWhatsAppLink(product) {
+  const text = product
+    ? (product.stock
+        ? `Hola Essence Crespo! Quiero pedir el perfume ${product.nombre} (${product.tamano}). ¿Me pasan más información?`
+        : `Hola Essence Crespo! Quisiera saber cuándo vuelve a estar disponible el perfume ${product.nombre}.`)
+    : 'Hola Essence Crespo! Quisiera hacer una consulta.';
+  return `https://wa.me/${CONFIG.whatsappNumber}?text=${encodeURIComponent(text)}`;
+}
+
+/* =====================================================================
+   4. ESTADO Y LÓGICA DE FILTROS (trabaja siempre sobre PRODUCTS original)
+   ===================================================================== */
+const state = { query: '', category: 'Todas', gender: 'Todos' };
+
+function getFilteredProducts() {
+  const q = normalize(state.query).trim();
+  return PRODUCTS.filter((p) => {
+    if (state.category !== 'Todas' && p.categoria !== state.category) return false;
+    if (state.gender !== 'Todos' && p.genero !== state.gender) return false;
+    if (!q) return true;
+    const haystack = normalize([p.nombre, p.categoria, p.genero, p.descripcionBreve, p.descripcionDetallada,
+      ...p.notas.salida, ...p.notas.corazon, ...p.notas.fondo, ...p.familias, ...p.acordes].join(' '));
+    return q.split(/\s+/).every((word) => haystack.includes(word));
+  });
+}
+
+/* =====================================================================
+   5. RENDERIZADO
+   ===================================================================== */
+function stockBadge(p) {
+  return p.stock
+    ? '<span class="inline-flex items-center gap-1.5 text-xs text-emerald-300"><span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>Disponible</span>'
+    : '<span class="inline-flex items-center gap-1.5 text-xs text-red-300"><span class="w-1.5 h-1.5 rounded-full bg-red-400"></span>Sin stock</span>';
+}
+
+function renderProductCard(p) {
+  return `
+  <article class="card fade-in bg-panel border border-line rounded-2xl overflow-hidden flex flex-col">
+    <div class="aspect-[4/5] bg-black overflow-hidden relative">
+      <img src="${escapeHTML(p.imagen)}" alt="Perfume ${escapeHTML(p.nombre)}" loading="lazy" onerror="imgFallback(this)" class="w-full h-full object-cover">
+      ${p.stock ? '' : '<span class="absolute top-3 left-3 bg-ink/85 border border-line text-red-300 text-[11px] px-2.5 py-1 rounded-full">Sin stock</span>'}
+    </div>
+    <div class="p-4 flex flex-col flex-1">
+      <p class="text-[11px] tracking-[0.2em] uppercase text-golddark">${escapeHTML(p.categoria)} · ${escapeHTML(p.genero)}</p>
+      <h3 class="font-serif text-xl leading-snug mt-1">${escapeHTML(p.nombre)}</h3>
+      <p class="text-xs text-cream/60 mt-2 line-clamp-2">${escapeHTML(p.descripcionBreve)}</p>
+      <div class="mt-3 flex items-center justify-between">
+        <span class="text-goldlight font-medium">${formatPrice(p.precio)}</span>
+        ${p.stock ? stockBadge(p) : ''}
+      </div>
+      <button type="button" data-product-id="${p.id}" class="open-modal mt-4 w-full rounded-full bg-gold text-ink text-sm font-medium py-2.5 hover:bg-goldlight transition">Ver detalles</button>
+    </div>
+  </article>`;
+}
+
+function renderCatalog() {
+  const results = getFilteredProducts();
+  $('productGrid').innerHTML = results.map(renderProductCard).join('');
+  $('emptyState').classList.toggle('hidden', results.length > 0);
+  $('resultCount').textContent = results.length === PRODUCTS.length
+    ? `${results.length} perfumes`
+    : `${results.length} de ${PRODUCTS.length} perfumes encontrados`;
+  if (results.length === 1) $('resultCount').textContent = `1 de ${PRODUCTS.length} perfumes encontrado`;
+}
+
+function renderCategoryButtons() {
+  const categories = ['Todas', ...new Set(PRODUCTS.map((p) => p.categoria))];
+  $('categoryFilters').innerHTML = categories.map((c) => {
+    const active = c === state.category;
+    return `<button type="button" data-category="${escapeHTML(c)}" aria-pressed="${active}"
+      class="rounded-full px-4 py-2 text-sm border transition ${active ? 'bg-gold text-ink border-gold' : 'border-line text-cream/80 hover:border-gold hover:text-goldlight'}">${c === 'Todas' ? 'Todas las categorías' : escapeHTML(c)}</button>`;
+  }).join('');
+}
+
+function renderGenderSelect() {
+  const genders = ['Todos', ...new Set(PRODUCTS.map((p) => p.genero))];
+  $('genderSelect').innerHTML = genders.map((g) => `<option value="${escapeHTML(g)}">${g === 'Todos' ? 'Todos' : escapeHTML(g)}</option>`).join('');
+  $('genderSelect').value = state.gender;
+}
+
+function resetFilters() {
+  state.query = ''; state.category = 'Todas'; state.gender = 'Todos';
+  $('searchInput').value = '';
+  $('genderSelect').value = 'Todos';
+  renderCategoryButtons();
+  renderCatalog();
+}
+
+/* =====================================================================
+   6. MODAL DE DETALLES
+   ===================================================================== */
+let lastFocusedElement = null;
+
+function noteRow(label, list) {
+  if (!list.length) return '';
+  return `<p><span class="text-golddark">${label}:</span> <span class="text-cream/80">${list.map(escapeHTML).join(', ')}</span></p>`;
+}
+function metaItem(label, value) {
+  const v = Array.isArray(value) ? value.join(' · ') : value;
+  return v ? `<div><dt class="text-[11px] uppercase tracking-wider text-cream/50">${label}</dt><dd class="text-cream/85">${escapeHTML(v)}</dd></div>` : '';
+}
+
+function openModal(productId, triggerElement) {
+  const p = PRODUCTS.find((item) => item.id === productId);
+  if (!p) return;
+  lastFocusedElement = triggerElement || document.activeElement;
+
+  $('modalImage').src = p.imagen;
+  $('modalImage').alt = `Perfume ${p.nombre}`;
+  $('modalImage').onerror = function () { imgFallback(this); };
+  $('modalCategory').textContent = `${p.categoria} · ${p.genero} · ${p.tamano}`;
+  $('modalTitle').textContent = p.nombre;
+  $('modalPrice').textContent = formatPrice(p.precio);
+  $('modalStock').innerHTML = stockBadge(p);
+  $('modalDescription').textContent = p.descripcionDetallada;
+  $('modalNotes').innerHTML =
+    noteRow('Salida', p.notas.salida) + noteRow('Corazón', p.notas.corazon) + noteRow('Fondo', p.notas.fondo);
+  $('modalMeta').innerHTML =
+    metaItem('Familias', p.familias) + metaItem('Carácter', p.caracter) + metaItem('Ocasión', p.ocasion) + metaItem('Clima', p.clima);
+
+  const wa = $('modalWhatsapp');
+  wa.href = buildWhatsAppLink(p);
+  wa.textContent = p.stock ? 'Pedir por WhatsApp' : 'Consultar disponibilidad por WhatsApp';
+
+  $('productModal').classList.remove('hidden');
+  document.body.style.overflow = 'hidden';
+  $('productModal').querySelector('[role="dialog"]').focus();
+}
+
+function closeModal() {
+  if ($('productModal').classList.contains('hidden')) return;
+  $('productModal').classList.add('hidden');
+  document.body.style.overflow = '';
+  if (lastFocusedElement && document.contains(lastFocusedElement)) lastFocusedElement.focus();
+}
+
+// Mantiene el foco dentro del modal con Tab
+function trapFocus(e) {
+  const focusable = $('productModal').querySelectorAll('a[href], button:not([disabled])');
+  if (!focusable.length) return;
+  const first = focusable[0], last = focusable[focusable.length - 1];
+  if (e.shiftKey && (document.activeElement === first || document.activeElement === $('productModal').querySelector('[role="dialog"]'))) { e.preventDefault(); last.focus(); }
+  else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+}
+
+/* =====================================================================
+   7. EVENTOS E INICIALIZACIÓN
+   ===================================================================== */
+function init() {
+  // Datos del negocio en navegación y pie de página
+  const generalLink = buildWhatsAppLink(null);
+  $('navWhatsapp').href = generalLink;
+  $('footerWhatsapp').href = generalLink;
+  $('footerWhatsapp').textContent = 'WhatsApp: ' + CONFIG.whatsappDisplay;
+  $('footerInstagram').href = 'https://instagram.com/' + CONFIG.instagram.replace('@', '');
+  $('footerInstagram').textContent = 'Instagram: ' + CONFIG.instagram;
+  $('footerCity').textContent = CONFIG.ciudad;
+  $('footerHours').textContent = CONFIG.horarios;
+  $('year').textContent = new Date().getFullYear();
+
+  renderGenderSelect();
+  renderCategoryButtons();
+  renderCatalog();
+
+  $('searchInput').addEventListener('input', (e) => { state.query = e.target.value; renderCatalog(); });
+  $('genderSelect').addEventListener('change', (e) => { state.gender = e.target.value; renderCatalog(); });
+  $('clearFilters').addEventListener('click', resetFilters);
+  $('emptyReset').addEventListener('click', resetFilters);
+
+  $('categoryFilters').addEventListener('click', (e) => {
+    const btn = e.target.closest('[data-category]');
+    if (!btn) return;
+    state.category = btn.dataset.category;
+    renderCategoryButtons();
+    renderCatalog();
+  });
+
+  $('productGrid').addEventListener('click', (e) => {
+    const btn = e.target.closest('.open-modal');
+    if (btn) openModal(Number(btn.dataset.productId), btn);
+  });
+
+  $('modalClose').addEventListener('click', closeModal);
+  // Clic en el fondo oscuro cierra; clic dentro del diálogo no (solo se cierra si el destino es el overlay mismo)
+  $('productModal').addEventListener('click', (e) => { if (e.target === $('productModal')) closeModal(); });
+  document.addEventListener('keydown', (e) => {
+    if ($('productModal').classList.contains('hidden')) return;
+    if (e.key === 'Escape') closeModal();
+    if (e.key === 'Tab') trapFocus(e);
+  });
+}
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>
